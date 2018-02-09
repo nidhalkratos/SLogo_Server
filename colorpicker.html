@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<style>
+            .btn{
+                width: 410px;
+                height: 150px;
+                padding: 10px;
+                margin: 20px;
+                background: #00b08a;
+                border: none;
+                border-radius: 2px;
+                font-size: 50px;
+                color: white
+            }
+			h3{color: #00b08a;}
+			body{
+				position:fixed;
+				left:0%;
+				top:0%;
+				width:100%;
+				height:100%;
+				z-index:2;
+				background-color: black;
+				background-image:url("freways.png");
+				background-position: bottom center;
+				background-repeat: repeat-y;
+			}
+			.result{
+				background-color: demo; 
+				height: 50;
+				width: 50;
+				align-self: left;
+				color: #00b08a;
+			}
+			#freeways{
+				width: 15%
+			}
+		</style>
+		<script type="text/javascript">
+			function hexToRgb(hex) {
+    var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+    return result ? {
+        r: parseInt(result[1], 16),
+        g: parseInt(result[2], 16),
+        b: parseInt(result[3], 16)
+    } : null;
+}
+
+
+			function myfunction(){
+			couleur=document.getElementById("freeways").value;
+			document.getElementById("redinput").value = hexToRgb(couleur).r;
+            //console.log(document.getElementById("redinput").value);
+                
+			document.getElementById("greeninput").value = hexToRgb(couleur).g;
+			document.getElementById("blueinput").value = hexToRgb(couleur).b;
+            //var xhr = new XMLHttpRequest();
+            //xhr.open('GET', 'http://localhost?set=1&red='+hexToRgb(couleur).r+'&green='+hexToRgb(couleur).g + '&blue=' + hexToRgb(couleur).b , false);
+                //xhr.send();
+		}
+			
+		</script>
+
+		<TITLE>Color Picker</TITLE>
+	</head>
+	<body>
+        <center>
+            <h3>choisir un couleur</h3>
+            <input name="colorcode" type="Color" id="freeways"  style="width: 500px; height: 250px;">
+            <form method="get" action="api.php">
+                <button onclick="myfunction()" class="btn">change me </button>
+                <div style="display: none;">
+                    <input name="set" value="1">
+                    <input type="text" name="red" value="" id="redinput">
+                    <input type="text" name="green" value="" id="greeninput">
+                    <input type="text" name="blue" value="" id="blueinput">
+                    </div>
+            </form>
+        </center>
+		
+		
+	</body>
+</html>

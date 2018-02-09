@@ -20,6 +20,7 @@
             else
                 echo $data;
             fclose($handle);
+            //header("location:index.php");
             die();
         }
     if(isset($_GET['red']) && isset($_GET['green']) && isset($_GET['blue']))
@@ -31,6 +32,7 @@
         $handle = fopen("led_status.txt", "w");
         fwrite($handle , "$red $green $blue");
         fclose($handle);
+        header("location:index.php");
         die();
     }
     

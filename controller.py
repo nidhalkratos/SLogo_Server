@@ -23,6 +23,6 @@ while(True):
             ser.write(serial.to_bytes([red,green,blue]))
             
 
-        sleep(0.5)
+        sleep(0.01)
     except:
         print('Error occured, repeating!')
